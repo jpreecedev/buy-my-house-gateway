@@ -1,0 +1,74 @@
+{
+  "name": "buy-my-house-gateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nf start",
+    "lint": "eslint ./src",
+    "prettier": "prettier \"**/*.{js,scss}\" --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpreecedev/buy-my-house-gateway.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpreecedev/buy-my-house-gateway/issues"
+  },
+  "homepage": "https://github.com/jpreecedev/buy-my-house-gateway#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-class-properties": "^7.0.0",
+    "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-0",
+    "babel-eslint": "^8.2.6",
+    "eslint": "5.2.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "2.6.2",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "foreman": "^3.0.1",
+    "husky": "^1.0.0-rc.13",
+    "identity-obj-proxy": "^3.0.0",
+    "nodemon": "^1.18.3",
+    "path": "^0.12.7",
+    "prettier": "1.13.7",
+    "prettier-eslint": "^8.8.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^0.13.2",
+    "node-fetch": "^2.3.0"
+  },
+  "browserslist": {
+    "production": [
+      "> 1%",
+      "ie 10"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version"
+    ]
+  },
+  "engines": {
+    "node": ">=8.11.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier && git add ."
+    }
+  }
+}
