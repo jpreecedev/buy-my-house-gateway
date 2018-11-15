@@ -1,14 +1,30 @@
 const { buildSchema } = require("graphql")
 
-var schema = buildSchema(`
-  type Query {
-    hello: String
+const fetch = require("node-fetch")
+
+const schema = buildSchema(`
+type Query {
+  results: Results
+}
+
+type Listing {
+  category: String
+  property_type: String
+}
+
+  type Results {
+    country: String
+    result_count: Int
+    area_name: String
+  listing: [Listing]
   }
 `)
 
 const resolvers = {
-  Query: {
-    hello: (_, { name }) => `Hello ${name || "World"}`
+  results: async () => {
+    return await fetch("http://localhost:5000/api/listings").then(res =>
+      res.json()
+    )
   }
 }
 

@@ -1,9 +1,8 @@
-import express from "express"
-import { json, urlencoded } from "body-parser"
-import cors from "cors"
-import graphqlHTTP from "express-graphql"
-import { buildSchema } from "graphql"
-import { schema } from "./schema"
+const express = require("express")
+const { json, urlencoded } = require("body-parser")
+const cors = require("cors")
+const graphqlHTTP = require("express-graphql")
+const { schema, resolvers } = require("./schema")
 
 const app = express()
 
@@ -22,25 +21,11 @@ app.use(function(req, res, next) {
   next()
 })
 
-// The root provides a resolver function for each API endpoint
-var root = {
-  hello: () => {
-    return "Hello world!"
-  }
-}
-
-// The root provides a resolver function for each API endpoint
-var root = {
-  hello: () => {
-    return "Hello world!"
-  }
-}
-
 app.use(
   "/graphql",
   graphqlHTTP({
-    schema: schema,
-    rootValue: root,
+    schema,
+    rootValue: resolvers,
     graphiql: true
   })
 )
