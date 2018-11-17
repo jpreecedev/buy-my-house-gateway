@@ -30,8 +30,6 @@ app.use(
   })
 )
 
-require("./routes")(app)
-
 app.set("port", process.env.PORT || 3002)
 app.listen(app.get("port"))
 
