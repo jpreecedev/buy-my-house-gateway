@@ -10,9 +10,10 @@ const schema = buildSchema(`
   type Listing {
     listing_id: String
     category: String
-    property_type: String!
+    property_type: String
     image_url: String
     num_bedrooms: String
+    short_description: String
     description: String
     price: Int
     displayable_address: String
@@ -27,8 +28,25 @@ const schema = buildSchema(`
 `)
 
 const resolvers = {
-  results: async () => {
-    return require("./data.json")
+  results: (
+    _,
+    {
+      body: {
+        variables: { listingId }
+      }
+    }
+  ) => {
+    const data = JSON.parse(JSON.stringify(require("./data.json")))
+
+    if (listingId) {
+      data.listing = [
+        data.listing.find(
+          listing => listing.listing_id.toString() === listingId.toString()
+        )
+      ]
+    }
+
+    return data
 
     // TODO: Fix
     // return await fetch("http://localhost:5001/api/listings").then(res =>
