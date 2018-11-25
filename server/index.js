@@ -21,6 +21,10 @@ app.use(function(req, res, next) {
   next()
 })
 
+app.use('/test', (req,res) => {
+  res.send('testing!!')
+})
+
 app.use(
   "/graphql",
   graphqlHTTP({
