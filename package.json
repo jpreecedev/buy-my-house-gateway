@@ -8,7 +8,7 @@
     "lint": "eslint ./src",
     "prettier": "prettier \"**/*.{js,scss}\" --write",
     "docker:build": "docker build -t preecej/buy-my-house-gateway .",
-    "docker:run": "docker run -p 49160:8080 -d preecej/buy-my-house-gateway"
+    "docker:run": "docker run -p 49160:3002 -d preecej/buy-my-house-gateway"
   },
   "repository": {
     "type": "git",

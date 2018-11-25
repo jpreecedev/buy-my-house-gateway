@@ -21,8 +21,8 @@ app.use(function(req, res, next) {
   next()
 })
 
-app.use('/test', (req,res) => {
-  res.send('testing!!')
+app.use("/test", (req, res) => {
+  res.send("testing testing!!")
 })
 
 app.use(
